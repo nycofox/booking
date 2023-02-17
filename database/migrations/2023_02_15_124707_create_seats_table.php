@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->boolean('is_active')->default('true');
-            $table->boolean('approval_required')->default('false');
-            $table->boolean('public')->default('true');
+            $table->boolean('is_active')->default(true);
+            $table->boolean('approval_required')->default(false);
+            $table->boolean('public')->default(true);
             $table->foreignId('room_id')->constrained();
             $table->unsignedInteger('favorite_count')->default(0);
             $table->timestamps();
