@@ -11,6 +11,11 @@ class Checkin extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'checkin_time' => 'datetime',
+        'checkout_time' => 'datetime',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

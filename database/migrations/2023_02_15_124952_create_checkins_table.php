@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->timestamp('checkin_time');
-            $table->boolean('checkin_time_adjusted')->default(false);
             $table->timestamp('checkout_time')->nullable();
-            $table->boolean('checkout_time_adjusted')->default(false);
             $table->boolean('forced_checkout')->default(false);
+            $table->unsignedSmallInteger('duration')->nullable();
             $table->timestamps();
         });
     }

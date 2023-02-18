@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Traits\CanCheckin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,6 +22,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'remember_token',
+        'social_id'
     ];
 
     /**
@@ -35,9 +35,28 @@ class User extends Authenticatable
         'anonymized_at' => 'datetime',
     ];
 
-    public function getFirstNameAttribute()
+    public function getFirstNameAttribute(): string
     {
+        if ($this->isAnonymized) {
+            return 'Slettet deltaker';
+        }
+
         return explode(' ', $this->name)[0];
+    }
+
+    public function anonymize(): void
+    {
+        $this->update([
+            'name' => null,
+            'email' => null,
+            'avatar_path' => null,
+            'anonymized_at' => now(),
+        ]);
+    }
+
+    public function getIsAnonymizedAttribute(): bool
+    {
+        return $this->anonymized_at != null;
     }
 
     /*

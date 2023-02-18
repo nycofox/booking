@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Auth;
+use \Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,21 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.dashboard');
-})->middleware('auth')->name('home');
+require(__DIR__ . '/_auth.php');
 
-Route::get('login', function () {
-    return view('auth.login');
-})->middleware('guest')->name('login');
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('frontend.dashboard');
+    })->name('home');
 
-Route::post('logout', function () {
-    Auth::logout();
-    return redirect()->route('login');
-})->middleware('auth')->name('logout');
-
-
-Route::get('/auth/google', [App\Http\Controllers\Auth\GoogleController::class, 'googleRedirect'])
-    ->name('google.login');
-Route::get('/callback/google', [App\Http\Controllers\Auth\GoogleController::class, 'googleCallback'])
-    ->name('google.callback');
+    Route::middleware('role:teacher')->group(function () {
+        Route::get('/backend/rooms', [\App\Http\Controllers\Backend\RoomController::class, 'index'])
+            ->name('rooms.index');
+    });
+});

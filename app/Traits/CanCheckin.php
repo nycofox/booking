@@ -32,8 +32,11 @@ trait CanCheckin
             return;
         }
 
-        $this->checkins()->whereNull('checkout_time')->first()->update([
+        $checkin = $this->checkins()->whereNull('checkout_time')->first();
+
+        $checkin->update([
             'checkout_time' => now(),
+            'duration' => $checkin->checkin_time->diffInMinutes(now()),
         ]);
     }
 

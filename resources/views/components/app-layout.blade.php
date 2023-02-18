@@ -22,7 +22,9 @@
 
 </head>
 <body class="bg-light">
+@auth
 <x-navbar></x-navbar>
+@endauth
 
 <div class="container">
     {{ $slot }}
