@@ -4,10 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Room extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+
+    public function getNumberOfSeatsAttribute()
+    {
+        return $this->seats->count();
+    }
+
+    /*
+     * Relationships
+     */
 
     public function seats()
     {

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('social_type')->nullable();
             $table->string('social_id')->nullable();
             $table->string('avatar_path')->nullable();
-            $table->string('role');
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamp('last_active_at')->nullable();
             $table->timestamp('anonymized_at')->nullable();

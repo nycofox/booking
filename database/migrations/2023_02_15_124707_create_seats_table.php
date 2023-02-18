@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('public')->default(true);
             $table->foreignId('room_id')->constrained();
             $table->unsignedInteger('favorite_count')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

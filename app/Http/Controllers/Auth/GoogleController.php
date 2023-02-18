@@ -31,7 +31,6 @@ class GoogleController extends Controller
             [
                 'name' => $google_user->name,
                 'email' => $google_user->email,
-                'role' => 'user',
                 'social_id' => $google_user->id,
                 'social_type' => 'google',
                 'avatar_path' => $google_user->getAvatar(),
@@ -44,6 +43,6 @@ class GoogleController extends Controller
 
         Activity::log('logged_in', $auth_user);
 
-        return redirect($redirectAddress);
+        return redirect(route('home'));
     }
 }

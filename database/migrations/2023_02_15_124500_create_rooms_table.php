@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('start_time');
-            $table->string('end_time');
-            $table->string('description');
-            $table->string('room_type');
+            $table->string('slug')->unique()->index();
+            $table->string('start_time'); // Time for earliest booking
+            $table->string('end_time'); // Time for latest booking
+            $table->string('description')->nullable();
+            $table->string('seat_map_image')->nullable();
             $table->boolean('public')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

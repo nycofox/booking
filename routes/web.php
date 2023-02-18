@@ -24,6 +24,9 @@ Route::middleware('auth')->group(function () {
     })->name('home');
 
     Route::middleware('role:teacher')->group(function () {
+        Route::get('backend', [\App\Http\Controllers\Backend\DashboardController::class, 'index'])
+            ->name('backend.dashboard');
+
         Route::get('/backend/rooms', [\App\Http\Controllers\Backend\RoomController::class, 'index'])
             ->name('rooms.index');
     });

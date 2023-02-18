@@ -20,8 +20,9 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'avatar_path' => fake()->imageUrl(),
+            'role' => 'user',
+            'last_active_at' => fake()->dateTimeBetween('-1 year', 'now'),
             'remember_token' => Str::random(10),
         ];
     }

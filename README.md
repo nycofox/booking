@@ -22,8 +22,20 @@ To get started with Funkybooking, follow these steps:
    * Clone the repository
    * Install dependencies with `composer install`
    * Configure your database settings in the .env file
-   * Run migrations with `php artisan migrate`
+   * Run migrations with `php artisan migrate --seed`
    * Start the development server with `php artisan serve`
+
+#### Requirements
+
+   * PHP 8.1 or higher
+   * MySQL 5.7 or higher
+   * Composer 2.1 or higher
+
+#### To get admin role
+
+   * Go to the database and find the user you want to give admin role
+   * Change `role` to `admin`
+   * Save the changes
 
 ### Contributing
 
