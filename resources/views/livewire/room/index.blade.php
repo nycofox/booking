@@ -3,6 +3,8 @@
         <thead>
         <tr>
             <th>Rom</th>
+            <th>Beskrivelse</th>
+            <th>Åpent fra-til</th>
             <th>Antall plasser</th>
             <th>Handlinger</th>
         </tr>
@@ -10,12 +12,13 @@
         <tbody>
         @foreach ($rooms as $room)
             <tr>
-                <td>{{ $room->name }}</td>
-                <td>{{ $room->capacity }}</td>
+                <td><a href="#">{{ $room->name }}</a></td>
+                <td>{{ $room->description }}</td>
+                <td>{{ $room->start_time }} - {{ $room->end_time }}</td>
+                <td>{{ $room->seats_count }}</td>
                 <td>
                     <div class="d-flex">
                     <button class="btn btn-primary btn-small" wire:click="edit({{ $room->id }})">Editer</button>
-{{--                    <button class="btn btn-primary btn-small" wire:click="delete({{ $room->id }})">Slett</button>--}}
                     @livewire('room.delete-button', ['room' => $room])
                     </div>
                 </td>

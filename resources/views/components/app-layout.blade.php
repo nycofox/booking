@@ -30,6 +30,10 @@
     {{ $slot }}
 </div>
 
+<!-- Modals -->
+@stack('modals')
+<!-- End Modals -->
+
 @livewireScripts
 
 @include('includes.sweetalert')

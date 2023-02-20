@@ -21,5 +21,7 @@ class DeleteButton extends Component
 
         $room->delete();
 
+        $this->redirect(route('rooms.index'));
+
     }
 }
