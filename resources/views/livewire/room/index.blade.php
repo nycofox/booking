@@ -13,16 +13,16 @@
                 <td>{{ $room->name }}</td>
                 <td>{{ $room->capacity }}</td>
                 <td>
+                    <div class="d-flex">
                     <button class="btn btn-primary btn-small" wire:click="edit({{ $room->id }})">Editer</button>
-                    <button class="btn btn-primary btn-small" wire:click="delete({{ $room->id }})">Slett</button>
+{{--                    <button class="btn btn-primary btn-small" wire:click="delete({{ $room->id }})">Slett</button>--}}
+                    @livewire('room.delete-button', ['room' => $room])
+                    </div>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
 
-    <button class="btn btn-primary" wire:click="create">
-        <i class="fas fa-plus"></i>
-        Nytt rom
-    </button>
+    @livewire('room.create-button')
 </div>

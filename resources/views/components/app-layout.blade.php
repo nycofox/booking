@@ -33,6 +33,7 @@
 @livewireScripts
 
 @include('includes.sweetalert')
+@stack('scripts')
 
 </body>
 </html>

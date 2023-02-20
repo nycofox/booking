@@ -15,9 +15,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        return view('backend.rooms.index', [
-            'rooms' => Room::all(),
-        ]);
+        return view('backend.rooms.index');
     }
 
     /**

@@ -14,20 +14,12 @@ class Index extends Component
         ]);
     }
 
-    public function delete($id)
+    public function create()
     {
-        $room = Room::find($id);
-
-        $this->dispatchBrowserEvent('alert', [
-            'type' => 'warning',
-            'message' => 'Vil du virkelig slette ' . $room->name . '?',
-        ]);
-
-        $room->delete();
-
-        $this->dispatchBrowserEvent('alert', [
-            'type' => 'success',
-            'message' => $room->name . ' ble slettet!',
+        $this->dispatchBrowserEvent('modal', [
+            'modal' => 'room-create',
+            'action' => 'show',
         ]);
     }
+
 }
