@@ -27,5 +27,16 @@
         </tbody>
     </table>
 
-    @livewire('room.create-button')
+    <div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fas fa-plus"></i>
+            Legg til rom
+        </button>
+    </div>
+
+    @push('modals')
+        <x-modal>
+            @livewire('room.create-form')
+        </x-modal>
+    @endpush
 </div>

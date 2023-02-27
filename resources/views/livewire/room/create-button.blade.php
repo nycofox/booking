@@ -7,16 +7,14 @@
 
 @push('modals')
     <x-modal>
-        <x-slot name="header">Legg til nytt rom</x-slot>
+        <form wire:submit.prevent="submit">
+            <x-slot name="header">Legg til nytt rom</x-slot>
 
-        <form wire:submit.prevent="store">
+            @include('livewire.room._form')
 
-        @include('livewire.room._form')
-
+            <x-slot name="footer">
+                <button type="button" class="btn btn-primary">Legg til</button>
+            </x-slot>
         </form>
-
-        <x-slot name="footer">
-            <button type="button" class="btn btn-primary">Legg til</button>
-        </x-slot>
     </x-modal>
 @endpush

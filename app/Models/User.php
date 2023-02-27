@@ -72,4 +72,9 @@ class User extends Authenticatable
     {
         // TODO: Implement students() method.
     }
+
+    public function favoriteSeats()
+    {
+        return $this->belongsToMany(Seat::class, 'user_seat');
+    }
 }

@@ -5,8 +5,14 @@ namespace App\Http\Livewire\Room;
 use App\Models\Room;
 use Livewire\Component;
 
-class CreateButton extends Component
+class CreateForm extends Component
 {
+    public $name;
+    public $description;
+    public $start_time;
+    public $end_time;
+    public $public;
+
     protected $rules = [
         'name' => 'required',
         'description' => 'required',
@@ -17,7 +23,7 @@ class CreateButton extends Component
 
     public function render()
     {
-        return view('livewire.room.create-button');
+        return view('livewire.room.create-form');
     }
 
     public function updated($propertyName)

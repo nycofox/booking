@@ -29,5 +29,10 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/backend/rooms', [\App\Http\Controllers\Backend\RoomController::class, 'index'])
             ->name('rooms.index');
+
+        Route::get('backend/settings', [\App\Http\Controllers\Backend\SettingsController::class, 'index'])
+            ->name('settings.index');
+        Route::patch('backend/settings', [\App\Http\Controllers\Backend\SettingsController::class, 'update'])
+            ->name('settings.update');
     });
 });

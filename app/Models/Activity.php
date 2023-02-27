@@ -21,6 +21,10 @@ class Activity extends Model
         return $activity;
     }
 
+    /*
+     * Relationships
+     */
+
     /**
      * Get the user that owns the Activity
      *

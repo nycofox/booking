@@ -11,7 +11,7 @@ class Seat extends Model
     use HasFactory, SoftDeletes;
 
     /*
-     *
+     * Relationships
      */
 
     public function room()

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->timestamp('start_time');
             $table->timestamp('end_time');
+            $table->boolean('approval_required')->default(false);
             $table->timestamp('approved_at')->nullable();
             $table->foreignId('approved_by')->nullable()->constrained('users');
             $table->softDeletes();

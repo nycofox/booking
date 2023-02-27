@@ -16,6 +16,10 @@ class Checkin extends Model
         'checkout_time' => 'datetime',
     ];
 
+    /*
+     * Relationships
+     */
+
     public function user()
     {
         return $this->belongsTo(User::class);

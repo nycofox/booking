@@ -10,6 +10,15 @@ class Room extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public function getSeatMapImageAttribute()
+    {
+        // TODO: Implement getSeatMapImageAttribute() method.
+    }
+
+    /*
+     * Relationships
+     */
+
     public function getNumberOfSeatsAttribute()
     {
         return $this->seats->count();
