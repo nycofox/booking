@@ -1,7 +1,7 @@
 <div>
     <div class="form-group">
         <label for="name">Navn</label>
-        <input type="text" class="form-control" name="name" id="name" wire:model="name">
+        <input type="text" class="form-control @error('description') is-invalid @enderror" name="name" id="name" wire:model="name">
         @error('name') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
     <div class="form-group">

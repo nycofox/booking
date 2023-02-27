@@ -17,7 +17,7 @@ class CreateForm extends Component
         'name' => 'required',
         'description' => 'required',
         'start_time' => 'required|date_format:H:i',
-        'end_time' => 'required|date_format:H:i',
+        'end_time' => 'required|date_format:H:i|after:start_time',
         'public' => 'boolean',
     ];
 
@@ -27,14 +27,15 @@ class CreateForm extends Component
     }
 
     public function updated($propertyName)
-
     {
         $this->validateOnly($propertyName);
     }
 
-    public function submit()
+    public function addRoom()
     {
         $data = $this->validate();
+
+        dd($data);
 
         $room = Room::create($data);
 
